@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body class="main">
+<form th:action="@{/doRegister}" method="post" onsubmit="checkUserMessage(username,password)">
+    <div>
+        <label>工号</label>
+        <input type="text" placeholder="请输入账号..." id="username" name="username">
+    </div>
+    <div>
+        <label>密码</label>
+        <input type="password" placeholder="请输入密码..." id="password" name="password">
+    </div>
+    <input type="submit" value="注册"/>
+</form>
+<script type="text/javascript">
+    function checkUserMessage() {
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        if (username == "") {
+            alert("用户名不能为空");
+            return false;
+        } else if (password == "") {
+            alert("密码不能为空");
+            return false;
+        } else {
+            return true;
+        }
+    }
+</script>
+</body>
+<style>
+    .main {
+        text-align: center;
+    }
+</style>
+</html>

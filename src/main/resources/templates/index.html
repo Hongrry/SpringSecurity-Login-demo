@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body class="main">
+<h1>Index</h1>
+
+<a th:href="@{/vip1}">VIP1</a>
+<a th:href="@{/vip2}">VIP2</a>
+<a th:href="@{/vip3}">VIP3</a>
+<div sec:authorize="!isAuthenticated()">
+    <form th:action="@{/toLogin}" method="post">
+        <input type="submit" value="Login"/>
+    </form>
+    <a th:href="@{/toRegister}">注册</a>
+</div>
+<div sec:authorize="isAuthenticated()">
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout"/>
+    </form>
+</div>
+
+</body>
+<style>
+    .main {
+        text-align: center;
+    }
+</style>
+</html>
